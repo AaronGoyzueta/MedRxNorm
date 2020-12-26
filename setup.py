@@ -9,13 +9,18 @@ project_urls = {
 
 setuptools.setup(
     name="MedRxNorm",
-    version="0.0.4",
+    version="0.1.0",
     author="Aaron Goyzueta",
     author_email="aarongoyzueta@gmail.com",
     description="Python module for normalizing medical prescriptions",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages("src"),
+    package_dir={"": "src"},
+    package_data={
+        "": ["*.py"],
+        "MedRxNorm": ["data/*.json"]
+    },
     install_requires=["pynini", "num2words", "textblob", "text2digits"],
     project_urls=project_urls
 )

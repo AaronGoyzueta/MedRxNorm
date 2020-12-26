@@ -1,0 +1,10 @@
+README.md
+setup.py
+src/MedRxNorm/MedRxNorm.py
+src/MedRxNorm/__init__.py
+src/MedRxNorm.egg-info/PKG-INFO
+src/MedRxNorm.egg-info/SOURCES.txt
+src/MedRxNorm.egg-info/dependency_links.txt
+src/MedRxNorm.egg-info/requires.txt
+src/MedRxNorm.egg-info/top_level.txt
+src/MedRxNorm/data/abbreviations.json

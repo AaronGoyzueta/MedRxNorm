@@ -15,7 +15,7 @@ pip install MedRxNorm
 ``` {.python}
 from MedRxNorm import MedRxNorm
 
-mrn = MedRxNorm()
+mrn = MedRxNorm.MedRxNorm()
 
 print(mrn.normalize("Take 2 TAB PO Q4H x 10 days prn"))
 # Output: Take two tablets by mouth every four hours for ten days as needed

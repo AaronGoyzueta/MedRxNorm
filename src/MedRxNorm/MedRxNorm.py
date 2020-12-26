@@ -1,4 +1,6 @@
+import os
 import json
+import pkg_resources
 import pynini
 import re
 import string
@@ -9,8 +11,10 @@ from text2digits import text2digits
 from typing import List
 
 class MedRxNorm:
-	def __init__(self, json_file='../data/abbreviations.json'):
-		self.json_file = json_file
+	def __init__(self):
+		self.json_file = os.path.join(
+                os.path.dirname(os.path.abspath(__file__)),
+                'data/abbreviations.json')
 		self.t2d = text2digits.Text2Digits()
 		self.unions = self._load_unions()
 		self.route_data = self._load_json("routes")
