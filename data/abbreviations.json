@@ -1,0 +1,69 @@
+{
+	"routes": [
+		{
+			"DIALYS": "through dialysis",
+			"PO": "by mouth",
+			"PO/NG": "by mouth/nasally",
+			"ORALLY": "by mouth",
+			"ORAL": "by mouth",
+			"PR": "per rectum",
+			"SC": "subcutaneously",
+			"SL": "sublingually",
+			"SUBCUT": "subcutaneously",
+			"IP": "by intraperitoneal injection",
+			"ID": "intradermally",
+			"IJ": "by injection",
+			"IV": "intravenously",
+			"IV DRIP": "by intravenous drip",
+			"IVPB": "by intravenous piggyback",
+			"IH": "by inhalation",
+			"INH": "by inhalation",
+			"IT": "intrathecal",
+			"J TUBE": "by j tube",
+			"NEB": "per nebulizer",
+			"NU": "nasally",
+			"IM": "intramuscularly",
+			"NG": "by nasogastric tube",
+			"TD": "transdermally",
+			"TP": "topically",
+			"OD": "to right eye",
+			"OS": "to left eye",
+			"OU": "to eyes",
+			"BOTH EYES": "to both eyes",
+			"VG": "vaginally"
+		}
+	],
+	"med_type": [
+		{
+			"TAB": "tablet",
+			"CAP": "capsule",
+			"TUBE": "tube",
+			"INH": "puff",
+			"BAG": "bag",
+			"NEB": "puff",
+			"KIT": "tablet",
+			"AERO": "puff",
+			"SYR": "syringe",
+			"SUPP": "suppository",
+			"UDCUP": "cup",
+			"SPRY": "spray",
+			"ML": "milliliter",
+			"mL": "milliliter",
+			"PKT": "packet",
+			"VIAl": "vial",
+			"BTL": "bottle",
+			"DBTL": "bottle",
+			"DRP": "drip",
+			"PTCH": "patch",
+			"CAN": "can",
+			"DEV": "device",
+			"UNIT": "unit"
+		}
+	],
+	"other_abbreviations": [
+		{
+			"PRN": "as needed",
+			"X": "for"
+		}
+	]
+}
