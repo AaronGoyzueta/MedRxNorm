@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: MedRxNorm
-Version: 0.0.16
+Version: 0.1.2
 Summary: Python module for normalizing medical prescriptions
 Home-page: UNKNOWN
 Author: Aaron Goyzueta
@@ -24,7 +24,7 @@ Description: MedRxNorm
         ``` {.python}
         from MedRxNorm import MedRxNorm
         
-        mrn = MedRxNorm()
+        mrn = MedRxNorm.MedRxNorm()
         
         print(mrn.normalize("Take 2 TAB PO Q4H x 10 days prn"))
         # Output: Take two tablets by mouth every four hours for ten days as needed

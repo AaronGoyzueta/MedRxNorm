@@ -154,6 +154,10 @@ class MedRxNorm:
 						last_rule = (last_rule @ new_rule).optimize()
 			return last_rule
 
+	def hyphen_rule(self, text):
+		rule = self._full_word_rule(["-"], " to ", self.unions["all_numbers_plus_decimals"], self.unions["all_numbers_plus_decimals"])
+		return pynini.compose(text, rule).string()
+
 	def normalize_med_type(self, text):
 		return pynini.compose(text, self.med_type_rule).string()
 
@@ -179,6 +183,7 @@ class MedRxNorm:
 		return " ".join(new_text)
 
 	def normalize(self, text):
+		text = self.hyphen_rule(text)
 		text = self.t2d.convert(text)
 		text = self.normalize_med_type(text)
 		text = self.normalize_route(text)
