@@ -65,22 +65,37 @@ class MedRxNorm:
 										self._casefold_union("PM")).optimize()
 		rule_Q = self._beginning_word_rule(['Q', 'q'], "every ", ending=after_Q_union)
 		rule_D = pynini.cdrewrite(pynini.cross(self._casefold_union("D"), "day"), "every ", "", self.unions["sigma_star"])
-		rule_H_plural = pynini.cdrewrite(pynini.cross(self._casefold_union("H"), " hours"), self.unions["plural_nums"], "", self.unions["sigma_star"])
+		rule_H_plural = pynini.cdrewrite(pynini.cross(self._casefold_union("H"), " hours"),
+						 self.unions["plural_nums"],
+						 "",
+						 self.unions["sigma_star"])
 		rule_H_singular = pynini.cdrewrite(pynini.cross(self._casefold_union("H"), "hour"), "every ", "", self.unions["sigma_star"])
 		rule_H = (rule_H_plural @ rule_H_singular).optimize()
-		rule_AM = pynini.cdrewrite(pynini.cross(pynini.union(*["AM", "am", "aM", "Am"]).optimize(), "morning"), "every ", "", self.unions["sigma_star"])
-		rule_PM = pynini.cdrewrite(pynini.cross(pynini.union(*["PM", "pm", "pM", "Pm"]).optimize(), "evening"), "every ", "", self.unions["sigma_star"])
+		rule_AM = pynini.cdrewrite(pynini.cross(pynini.union(*["AM", "am", "aM", "Am"]).optimize(), "morning"),
+					   "every ",
+					   "",
+					   self.unions["sigma_star"])
+		rule_PM = pynini.cdrewrite(pynini.cross(pynini.union(*["PM", "pm", "pM", "Pm"]).optimize(), "evening"),
+					   "every ",
+					   "",
+					   self.unions["sigma_star"])
 		rule_Q_timing = (rule_Q @ rule_D @ rule_H @ rule_AM @ rule_PM).optimize()
-		rule_AC = pynini.cdrewrite(pynini.cross(pynini.union(*["AC", "ac", "aC", "Ac"]).optimize(), "before meals"), "", "", self.unions["sigma_star"])
-		rule_HS = pynini.cdrewrite(pynini.cross(pynini.union(*["HS", "hs", "hS", "Hs"]).optimize(), "before sleep"), "", "", self.unions["sigma_star"])
+		rule_AC = pynini.cdrewrite(pynini.cross(pynini.union(*["AC", "ac", "aC", "Ac"]).optimize(),"before meals"),
+					   "",
+					   "",
+					   self.unions["sigma_star"])
+		rule_HS = pynini.cdrewrite(pynini.cross(pynini.union(*["HS", "hs", "hS", "Hs"]).optimize(), "before sleep"),
+					   "",
+					   "",
+					   self.unions["sigma_star"])
 		return (full_ID_rule @ rule_Q_timing @ rule_AC @ rule_HS).optimize()
 
 	def _load_route_rule(self):
 		normalize_route_rule = self._dict_to_rule(data=self.route_data,
-													rule_type=self._full_word_rule,
-													beginning="",
-													ending="", func=None,
-													use_value=False)
+							rule_type=self._full_word_rule,
+							beginning="",
+							ending="", func=None,
+							use_value=False)
 		iv_drip = pynini.concat(pynini.accep("intravenously "), self._casefold_union("DRIP")).optimize()
 		rule_drip = pynini.cdrewrite(pynini.cross(iv_drip, "by intravenous drip"), "", "", self.unions["sigma_star"])
 		return (normalize_route_rule @ rule_drip).optimize()
@@ -90,13 +105,11 @@ class MedRxNorm:
 		rule = self._left_neighbor_rule
 		all_numbers_plus_decimals = self.unions["all_numbers_plus_decimals"]
 		plural_rule = self._dict_to_rule(data=self.med_type_data,
-											rule_type=self._left_neighbor_rule,
-											beginning=self.unions["plural_nums"],
-											ending="", func=self._pluralize,
-											use_value=True)
-		normalize_med_type_rule = self._dict_to_rule(data,
-													rule_type=rule,
-													beginning=all_numbers_plus_decimals)
+						rule_type=self._left_neighbor_rule,
+						beginning=self.unions["plural_nums"],
+						ending="", func=self._pluralize,
+						use_value=True)
+		normalize_med_type_rule = self._dict_to_rule(data, rule_type=rule, beginning=all_numbers_plus_decimals)
 		return (normalize_med_type_rule @ plural_rule).optimize()
 
 	def _load_abbreviations_rule(self):
