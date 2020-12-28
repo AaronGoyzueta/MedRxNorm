@@ -57,13 +57,17 @@
 			"PTCH": "patch",
 			"CAN": "can",
 			"DEV": "device",
-			"UNIT": "unit"
+			"UNIT": "unit",
+			"gm": "gram",
+			"dose": "dose",
+			"mg": "milligram"
 		}
 	],
 	"other_abbreviations": [
 		{
 			"PRN": "as needed",
-			"X": "for"
+			"X": "for",
+			"daily": "a day"
 		}
 	]
 }

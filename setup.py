@@ -9,7 +9,7 @@ project_urls = {
 
 setuptools.setup(
     name="MedRxNorm",
-    version="0.1.2",
+    version="0.1.4",
     author="Aaron Goyzueta",
     author_email="aarongoyzueta@gmail.com",
     description="Python module for normalizing medical prescriptions",
